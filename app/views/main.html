@@ -1,0 +1,17 @@
+<div class="header">
+  <ul class="nav nav-pills pull-right">
+    <li class="active"><a ng-href="#">Home</a></li>
+    <li><a ng-href="#">About</a></li>
+    <li><a ng-href="#">Contact</a></li>
+  </ul>
+  <h3 class="text-muted">github user contributions</h3>
+</div>
+
+<div class="jumbotron">
+  <h1>What have I contributed to?</h1>
+  <p><a class="btn btn-lg btn-success" ng-click="findRepositories()">Find out!<span class="glyphicon glyphicon-ok"></span></a></p>
+</div>
+
+<ul ng-repeat="issue in data" infinite-scroll="myPagingFunction()">
+  <li>{{issue.url}}<br /><span ng-if="issue.pull_request">Pull Request</span><span ng-if="!issue.pull_request">Issue</span><br />{{issue.title}}</li>
+</ul>
